@@ -34,14 +34,14 @@ plt.imshow(mask.astype(np.uint8) * 255, cmap="gray")
 plt.savefig("./ejercicios_practicos/numpy/imagenes/imagen_mascara.png")
 # ----------------------------------------------------------------------
 
-fig = plt.figure(figsize=(16, 8))  # tamaño grande
+# --- Figura completa ---
+plt.figure(figsize=(16, 8))
 
-# --- Imagen grande arriba ---
-ax_main = fig.add_subplot(2, 1, 1)
-ax_main.imshow(image, cmap="gray", vmin=0, vmax=255)
-ax_main.set_title("Imagen Original")
+plt.subplot(2, 4, (1, 4))
+plt.imshow(image, cmap="gray", vmin=0, vmax=255)
+plt.title("Imagen Original")
 
-# --- Imágenes pequeñas abajo ---
+# Imágenes pequeñas abajo
 imagenes = [
     (filtro_inverso, "Inverso"),
     (image_brillo, "Brillo +20%"),
@@ -49,11 +49,11 @@ imagenes = [
     (mask, "Máscara <50"),
 ]
 
-for i, (img, titulo) in enumerate(imagenes):
-    ax = fig.add_subplot(2, 4, 4 + i + 1)
-    ax.imshow(img, cmap="gray", vmin=0, vmax=255)
-    ax.set_title(titulo)
+for i, (img, titulo) in enumerate(imagenes, start=5):
+    plt.subplot(2, 4, i)
+    plt.imshow(img, cmap="gray", vmin=0, vmax=255)
+    plt.title(titulo)
 
 # plt.tight_layout()
-plt.savefig("./ejercicios_practicos/numpy/imagenes/imagen_conjunta.png")
+plt.savefig("./ejercicios_practicos/numpy/imagenes/imagen_conjunta_plt.png")
 plt.close()
