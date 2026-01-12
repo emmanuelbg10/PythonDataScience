@@ -55,5 +55,5 @@ for i, (img, titulo) in enumerate(imagenes, start=5):
     plt.title(titulo)
 
 # plt.tight_layout()
-plt.savefig("./ejercicios_practicos/numpy/imagenes/imagen_conjunta_plt.png")
+plt.savefig("./ejercicios_practicos/numpy/imagenes/imagen_conjunta.png")
 plt.close()
