@@ -43,8 +43,16 @@ dias_por_mes = np.array(
 )
 
 # Índices del primer día de cada mes
-primer_dia_mes = np.cumsum(np.concatenate(([0], dias_por_mes[:-1])))
+primer_dia_mes = np.cumsum(dias_por_mes) - dias_por_mes
+
 primer_dia_mes_datos = matriz[primer_dia_mes]
 
 print("\nExtraer datos del primer dia de cada mes")
 print(np.round(primer_dia_mes_datos, 1))
+
+# 5º 10 dias aleatorios
+
+indices = np.random.choice(365, size=10, replace=False)
+dias_aleatorios = matriz[indices]
+print("\nMostrar 10 dias aleatorios con fancy indexing")
+print(dias_aleatorios)
